@@ -42,7 +42,7 @@ public int getSize(String Owner, String passw);
 	
 // Crea una copia del  dato nella collezione 
 // se vengono rispettati i controlli di identità 
- public void copy(String Owner, String passw, E data); 
+public void copy(String Owner, String passw, E data); 
 	
 // Condivide il dato nella collezione con un altro utente 
 // se vengono rispettati i controlli di identità 
