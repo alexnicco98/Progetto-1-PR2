@@ -55,6 +55,7 @@ public Iterator<E> getIterator(String Owner, String passw);
 
 1. Si definisca la specifica completa come interfaccia Java del tipo di dato SecureDataContainer<E> , 
 fornendo le motivazioni delle scelte effettuate. 
+	
 2. Si definisca l’implementazione del tipo di SecureDataContainer<E> fornendo almeno due 
 implementazioni basate su differenti strutture di supporto. In entrambi i casi si devono comunque 
 descrivere sia la funzione di astrazione sia l’invariante di rappresentazione. Si discutano le 
