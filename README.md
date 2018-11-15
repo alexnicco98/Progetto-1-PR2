@@ -19,30 +19,33 @@ ad accedere ai dati, mentre altri non possono accedervi senza autorizzazione.
 Di seguito si riporta la struttura della Java interface di riferimento per la collezione 
 public interface SecureDataContainer<E>{ 
 // Crea l’identità un nuovo utente della collezione 
-public void createUser(String Id, String passw);\ 
+public void createUser(String Id, String passw);
+	
 // Rimuove l’utente dalla collezione 
 public void RemoveUser(String Id, String passw); 
+
 // Restituisce il numero degli elementi di un utente presenti nella  
 // collezione 
 public int getSize(String Owner, String passw); 
+
 // Inserisce il valore del dato nella collezione 
 // se vengono rispettati i controlli di identità 
  public boolean put(String Owner, String passw, E data); 
+ 
 // Ottiene una copia del valore del dato nella collezione 
 // se vengono rispettati i controlli di identità 
  public E get(String Owner, String passw, E data); 
+ 
 // Rimuove il dato nella collezione 
 // se vengono rispettati i controlli di identità 
  public E remove(String Owner, String passw, E data); 
+	
 // Crea una copia del  dato nella collezione 
 // se vengono rispettati i controlli di identità 
  public void copy(String Owner, String passw, E data); 
+	
 // Condivide il dato nella collezione con un altro utente 
 // se vengono rispettati i controlli di identità 
-
-
- 2 
-
  public void share(String Owner, String passw, String Other, E data); 
  
 // restituisce un iteratore (senza remove) che genera tutti i dati  
@@ -51,11 +54,10 @@ public int getSize(String Owner, String passw);
 public Iterator<E> getIterator(String Owner, String passw); 
  
 // … altre operazione da definire a scelta 
-} 
 
+} 
 1. Si definisca la specifica completa come interfaccia Java del tipo di dato SecureDataContainer<E> , 
 fornendo le motivazioni delle scelte effettuate. 
-	
 2. Si definisca l’implementazione del tipo di SecureDataContainer<E> fornendo almeno due 
 implementazioni basate su differenti strutture di supporto. In entrambi i casi si devono comunque 
 descrivere sia la funzione di astrazione sia l’invariante di rappresentazione. Si discutano le 
