@@ -7,10 +7,10 @@ public interface InterfSecureDataContainer {
     // Rimuove l’utente dalla collezione
     public void RemoveUser(String Id, String passw);
 
-  /*  // Restituisce il numero degli elementi di un utente presenti nella
+   // Restituisce il numero degli elementi di un utente presenti nella
     // collezione
     public int getSize(String Owner, String passw);
-
+/*
     // Inserisce il valore del dato nella collezione
     // se vengono rispettati i controlli di identità
     public boolean put(String Owner, String passw, E data);
