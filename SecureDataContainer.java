@@ -21,14 +21,20 @@ public class SecureDataContainer<E> implements InterfSecureDataContainer {
         else return false;
     }
 
+    //stampo gli indice del user e della password se corrispondono
+    public  void getIndex(String Id,String passw)throws NullPointerException{
+        if (Id == null || passw == null) throw new NullPointerException();
+        int i = VecId.indexOf(Id);
+        System.out.println(i);
+        System.out.println(Vecpassw.indexOf(passw,i));
+    }
     // Crea l’identità un nuovo utente della collezione
     public void createUser(String Id, String passw)throws NullPointerException {
         if (Id == null || passw == null) throw new NullPointerException();
         VecId.addElement(Id);
         Vecpassw.addElement(passw);
-        Vecdata.ensureCapacity(VecId.capacity()); //inrementa il vettore di dati affinche
-                                                  //contenga i dati che il nuovo user metterà
-        System.out.println("utente creato con successo");
+        Vecdata.addElement(new Vector<E>(1)); //inizializzo il vettore di dati di tipo E
+        System.out.println("Utente creato con successo");
     }
 
 
@@ -36,10 +42,14 @@ public class SecureDataContainer<E> implements InterfSecureDataContainer {
     public void RemoveUser(String Id, String passw)throws  NullPointerException{
         if (Id==null||passw==null)throw new NullPointerException();
         int i = VecId.indexOf(Id);
-        if(i==Vecpassw.indexOf(passw)) { //controllo se la password corrisponde all'id
-            Vecpassw.removeElementAt(i);
-            VecId.removeElementAt(i);
-            Vecdata.removeElementAt(i);
+        if(i==Vecpassw.indexOf(passw,i)) { //controllo se la password corrisponde all'id
+            Vecpassw.remove(i);
+            Vecpassw.trimToSize();
+            VecId.remove(i);
+            VecId.trimToSize();
+            Vecdata.remove(i);
+            Vecdata.trimToSize();
+            System.out.println("Utente rimmosso con successo");
         }
         else
             System.out.println("Password o User sbagliati");
@@ -50,8 +60,10 @@ public class SecureDataContainer<E> implements InterfSecureDataContainer {
     public int getSize(String Owner, String passw)throws NullPointerException{
         if (Owner==null||passw==null)throw new NullPointerException();
         int i = VecId.indexOf(Owner);
-        if(i==Vecpassw.indexOf(passw))  //controllo se la password corrisponde all'id
-            return VecId.capacity();  //non devo controllare la capacità degli user ma dei dati relativi all'user
+        if(i==Vecpassw.indexOf(passw,i)) {  //controllo se la password corrisponde all'id
+            Vector aux = Vecdata.elementAt(i);
+            return aux.size();              //numero di elementi di tipo E
+        }
         else
             System.out.println("Password o User sbagliati");
         return  -1;
