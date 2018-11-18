@@ -62,7 +62,7 @@ public class Main {
         id = "Anto99";
         passw = "Anto";
         Conteiner.createUser(id,passw);
-        Conteiner.RemoveUser(id,passw);
+        //Conteiner.RemoveUser(id,passw);
         //Conteiner.getIndex(id,passw);
 
         id = "Anto98";
@@ -72,9 +72,35 @@ public class Main {
         System.out.println("Inserire password:");
         passw = tastiera.nextLine();*/
         int i = Conteiner.getSize(id,passw);
+        if(i!=-1)
+            System.out.println("Elementi di tipo E dell'utente: "+i);
+        i=16;
+        Conteiner.put(id,passw,i);
+       /* Object el = Conteiner.get(id,passw,i);
+        System.out.println("Copia dell'elemento "+el);
+
+        i = Conteiner.getSize(id,passw);
         if(i!=-1) {
             System.out.println("Elementi di tipo E dell'utente:");
             System.out.println(i);
         }
+        el = Conteiner.remove(id,passw,16);
+        System.out.println("IL dato rimosso è "+el);
+       */ Conteiner.put(id,passw,2);
+        Conteiner.copy(id,passw,2);
+        i = Conteiner.getSize(id,passw);
+        if(i!=-1)
+            System.out.println("Elementi di tipo E dell'utente: "+i);
+        String a = "Anto99";
+        i = 35;
+        Conteiner.put(a,passw,i);
+        i = Conteiner.getSize(a,passw);
+        if(i!=-1)
+            System.out.println("Elementi di tipo E dell'utente: "+i);
+        Conteiner.share(id,passw,a,2);
+        i = Conteiner.getSize(a,passw);
+        if(i!=-1)
+            System.out.println("Elementi di tipo E dell'utente: "+i);
+
     }
 }
